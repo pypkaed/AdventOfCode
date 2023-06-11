@@ -1,6 +1,8 @@
+using AOC.Models;
+
 namespace AOC.Solutions;
 
-public class DayOne
+public class DayOne : IDay
 {
     private string _filePath;
 
@@ -8,15 +10,13 @@ public class DayOne
     {
         _filePath = filePath;
     }
-    public class Elf
+
+    public void Solve()
     {
-        public int Calories { get; private set; }
-        public void AddCalories(int calories)
-        {
-            Calories += calories;
-        }
+        Console.WriteLine(SolvePartOne());
+        Console.WriteLine(SolvePartTwo());
     }
-    
+
     public int SolvePartOne()
     {
         var elves = InitializeElfCalories(_filePath);
