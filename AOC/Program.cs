@@ -9,12 +9,21 @@ public class Program
     {
         var filePathDayOne = "/home/pypka/RiderProjects/AdventOfCode/AOC/Input/DayOneInput.txt";
         var filePathDayTwo = "/home/pypka/RiderProjects/AdventOfCode/AOC/Input/DayTwoInput.txt";
+        var filePathDayThree = "/home/pypka/RiderProjects/AdventOfCode/AOC/Input/DayThreeInput.txt";
         
+        Console.WriteLine("--- Day one ---");
         IDay day = new DayOne(filePathDayOne);
         day.Solve();
         Console.WriteLine();
         
+        Console.WriteLine("--- Day two ---");
         day = new DayTwo(filePathDayTwo);
         day.Solve();
+        Console.WriteLine();
+
+        Console.WriteLine("--- Day three ---");
+        day = new DayThree(filePathDayThree);
+        day.Solve();
+        Console.WriteLine();
     }
 }
