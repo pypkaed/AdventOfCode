@@ -1,4 +1,5 @@
 using AOC.Models;
+using AOC.Utils;
 
 namespace AOC.Solutions;
 
@@ -30,20 +31,7 @@ public class DayThree : IDay
             costs.Add(c, value++);
         }
     }
-
-    private static IEnumerable<string> ReadLinesFromFile(string filePath)
-    {
-        using (StreamReader reader = new StreamReader(filePath))
-        {
-            string? line;
-
-            while ((line = reader.ReadLine()) != null)
-            {
-                yield return line;
-            }
-        }
-    }
-
+    
     public void Solve()
     {
         SolvePartOne();
@@ -54,7 +42,7 @@ public class DayThree : IDay
     {
         int totalSum = 0;
         
-        var fileInput = ReadLinesFromFile(_filePath);
+        var fileInput = Reader.ReadLinesFromFile(_filePath);
 
         foreach (var line in fileInput)
         {
@@ -85,7 +73,7 @@ public class DayThree : IDay
     public void SolvePartTwo()
     {
         int totalSum = 0;
-        var fileInput = ReadLinesFromFile(_filePath);
+        var fileInput = Reader.ReadLinesFromFile(_filePath);
         var batchOfLines = new List<string>();
 
         foreach (var line in fileInput)
