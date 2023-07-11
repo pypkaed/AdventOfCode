@@ -16,7 +16,7 @@ public class DayFactory
     private Dictionary<string, Func<string, IDay>> _daysMapping;
     public DayFactory()
     {
-        _daysMapping = DayScanner.CreateDayMappingDictionary();
+        _daysMapping = DayScannerAutomation.CreateDayMappingDictionary();
     }
 
     public IDay GetDay(int year, int day)
