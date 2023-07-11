@@ -2,14 +2,17 @@ using AOC.Models;
 
 namespace AOC.Solutions;
 
-public class DayTwo : IDay
+public class DayTwoY2022 : IDay
 {
     private readonly string _filePath;
     
-    public DayTwo(string filePath)
+    public DayTwoY2022(string filePath)
     {
         _filePath = filePath;
     }
+    
+    public int Year => 2022;
+    public int Day => 2;
 
     // maybe use yield for this?? i don't like doing I/O in logic method
     public void Solve()

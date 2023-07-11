@@ -2,14 +2,17 @@ using AOC.Models;
 
 namespace AOC.Solutions;
 
-public class DayOne : IDay
+public class DayOneY2022 : IDay
 {
     private string _filePath;
 
-    public DayOne(string filePath)
+    public DayOneY2022(string filePath)
     {
         _filePath = filePath;
     }
+
+    public int Year => 2022;
+    public int Day => 1;
 
     public void Solve()
     {

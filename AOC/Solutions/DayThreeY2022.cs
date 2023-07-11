@@ -3,19 +3,22 @@ using AOC.Utils;
 
 namespace AOC.Solutions;
 
-public class DayThree : IDay
+public class DayThreeY2022 : IDay
 {
     private string _filePath;
     private Dictionary<char, int> costs;
     private const int TeamSize = 3;
 
-    public DayThree(string filePath)
+    public DayThreeY2022(string filePath)
     {
         _filePath = filePath;
         costs = new Dictionary<char, int>();
 
         InitializeCosts();
     }
+    
+    public int Year => 2022;
+    public int Day => 3;
 
     private void InitializeCosts()
     {

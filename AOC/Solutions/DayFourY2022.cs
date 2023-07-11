@@ -4,14 +4,17 @@ using Range = AOC.Models.Range;
 
 namespace AOC.Solutions;
 
-public class DayFour : IDay
+public class DayFourY2022 : IDay
 {
     private readonly string _filePath;
-    public DayFour(string filePath)
+    public DayFourY2022(string filePath)
     {
         _filePath = filePath;
     }
     
+    public int Year => 2022;
+    public int Day => 4;
+
     public void Solve()
     {
         SolvePartOne();

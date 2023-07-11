@@ -3,15 +3,18 @@ using AOC.Utils;
 
 namespace AOC.Solutions;
 
-public class DayFive : IDay
+public class DayFiveY2022 : IDay
 {
     private readonly string _filePath;
 
-    public DayFive(string filePath)
+    public DayFiveY2022(string filePath)
     {
         _filePath = filePath;
     }
     
+    public int Year => 2022;
+    public int Day => 5;
+
     public void Solve()
     {
         SolvePartOne();
