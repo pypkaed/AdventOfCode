@@ -17,8 +17,8 @@ public class DayThreeY2022 : IDay
         InitializeCosts();
     }
     
-    public int Year => 2022;
-    public int Day => 3;
+    public static int Year => 2022;
+    public static int Day => 3;
 
     private void InitializeCosts()
     {

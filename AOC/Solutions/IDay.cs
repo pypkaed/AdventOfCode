@@ -2,7 +2,7 @@ namespace AOC.Models;
 
 public interface IDay
 {
-    public void Solve();
-    public int Year { get; }
-    public int Day { get; }
+    void Solve();
+    static int Year { get; }
+    static int Day { get; }
 }

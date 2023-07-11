@@ -11,8 +11,8 @@ public class DayTwoY2022 : IDay
         _filePath = filePath;
     }
     
-    public int Year => 2022;
-    public int Day => 2;
+    public static int Year => 2022;
+    public static int Day => 2;
 
     // maybe use yield for this?? i don't like doing I/O in logic method
     public void Solve()

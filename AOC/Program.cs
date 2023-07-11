@@ -9,6 +9,7 @@ public class Program
     public static async Task Main()
     {
         var communicator = new WebsiteCommunicator();
+        var dayFactory = new DayFactory();
 
         for (var year = 2022; year <= 2022; year++)
         {
@@ -18,7 +19,7 @@ public class Program
                 
                 await communicator.StoreRemoteInput(year, day);
                 
-                var dayPuzzle = DayFactory.GetDay(year, day);
+                var dayPuzzle = dayFactory.GetDay(year, day);
                 dayPuzzle.Solve();
                 
                 Console.WriteLine();

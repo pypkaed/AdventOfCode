@@ -12,8 +12,8 @@ public class DayFourY2022 : IDay
         _filePath = filePath;
     }
     
-    public int Year => 2022;
-    public int Day => 4;
+    public static int Year => 2022;
+    public static int Day => 4;
 
     public void Solve()
     {
