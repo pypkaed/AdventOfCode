@@ -1,21 +1,15 @@
-using AOC.Models;
+using AOC.Attributes;
 using AOC.Utils;
 
 namespace AOC.Solutions;
 
-public class DayFiveY2022 : IDay
+[Day(year: 2022, day: 5)]
+public class DayFiveY2022 : Day
 {
-    private readonly string _filePath;
+    public DayFiveY2022(string filePath) : base(filePath)
+    { }
 
-    public DayFiveY2022(string filePath)
-    {
-        _filePath = filePath;
-    }
-    
-    public static int Year => 2022;
-    public static int Day => 5;
-
-    public void Solve()
+    public override void Solve()
     {
         SolvePartOne();
         Console.WriteLine();
@@ -24,7 +18,7 @@ public class DayFiveY2022 : IDay
 
     public void SolvePartOne()
     {
-        var fileInput = Reader.ReadLinesFromFile(_filePath);
+        var fileInput = Reader.ReadLinesFromFile(FilePath);
         var stacks = DayFiveParser.ParseStacks(fileInput, 0, 7);
 
         for (int i = 10; i < fileInput.Count(); i++)
@@ -50,7 +44,7 @@ public class DayFiveY2022 : IDay
 
     public void SolvePartTwo()
     {
-        var fileInput = Reader.ReadLinesFromFile(_filePath);
+        var fileInput = Reader.ReadLinesFromFile(FilePath);
         var stacks = DayFiveParser.ParseStacks(fileInput, 0, 7);
 
         for (int i = 10; i < fileInput.Count(); i++)

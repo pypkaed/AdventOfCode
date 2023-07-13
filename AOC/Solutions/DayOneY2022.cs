@@ -1,20 +1,15 @@
 using AOC.Models;
+using AOC.Attributes;
 
 namespace AOC.Solutions;
 
-public class DayOneY2022 : IDay
+[Day(year: 2022, day: 1)]
+public class DayOneY2022 : Day
 {
-    private string _filePath;
+    public DayOneY2022(string filePath) : base(filePath)
+    { }
 
-    public DayOneY2022(string filePath)
-    {
-        _filePath = filePath;
-    }
-
-    public static int Year => 2022;
-    public static int Day => 1;
-
-    public void Solve()
+    public override void Solve()
     {
         Console.WriteLine(SolvePartOne());
         Console.WriteLine(SolvePartTwo());
@@ -22,14 +17,14 @@ public class DayOneY2022 : IDay
 
     public int SolvePartOne()
     {
-        var elves = InitializeElfCalories(_filePath);
+        var elves = InitializeElfCalories(FilePath);
 
         return FindElfWithMaxCalories(elves).Calories;
     }
 
     public int SolvePartTwo()
     {
-        var elves = InitializeElfCalories(_filePath);
+        var elves = InitializeElfCalories(FilePath);
         return elves.OrderByDescending(elf => elf.Calories).Take(3).Sum(elf => elf.Calories);
         
     }

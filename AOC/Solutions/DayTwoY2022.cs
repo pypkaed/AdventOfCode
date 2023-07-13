@@ -1,21 +1,17 @@
 using AOC.Models;
+using AOC.Attributes;
 
 namespace AOC.Solutions;
 
-public class DayTwoY2022 : IDay
+[Day(year: 2022, day: 2)]
+public class DayTwoY2022 : Day
 {
-    private readonly string _filePath;
-    
-    public DayTwoY2022(string filePath)
-    {
-        _filePath = filePath;
-    }
-    
-    public static int Year => 2022;
-    public static int Day => 2;
+    public DayTwoY2022(string filePath) : base(filePath)
+    { }
 
     // maybe use yield for this?? i don't like doing I/O in logic method
-    public void Solve()
+
+    public override void Solve()
     {
         SolvePartOne();
         SolvePartTwo();
@@ -25,7 +21,7 @@ public class DayTwoY2022 : IDay
     {
         int totalScore = 0;
         
-        using (var streamReader = new StreamReader(_filePath))
+        using (var streamReader = new StreamReader(FilePath))
         {
             string? line;
 
@@ -57,7 +53,7 @@ public class DayTwoY2022 : IDay
     {
         int totalScore = 0;
         
-        using (var streamReader = new StreamReader(_filePath))
+        using (var streamReader = new StreamReader(FilePath))
         {
             string? line;
 

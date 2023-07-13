@@ -1,41 +1,37 @@
-using AOC.Models;
 using AOC.Utils;
+using AOC.Attributes;
 
 namespace AOC.Solutions;
 
-public class DayThreeY2022 : IDay
+[Day(year: 2022, day: 3)]
+public class DayThreeY2022 : Day
 {
-    private string _filePath;
-    private Dictionary<char, int> costs;
+    private Dictionary<char, int> _costs;
     private const int TeamSize = 3;
 
-    public DayThreeY2022(string filePath)
-    {
-        _filePath = filePath;
-        costs = new Dictionary<char, int>();
+    public DayThreeY2022(string filePath) : base(filePath)
+    { }
 
-        InitializeCosts();
-    }
-    
     public static int Year => 2022;
+
     public static int Day => 3;
 
     private void InitializeCosts()
     {
-        costs.Clear();
+        _costs.Clear();
         
         int value = 1;
         for (char c = 'a'; c <= 'z'; c++)
         {
-            costs.Add(c, value++);
+            _costs.Add(c, value++);
         }
         for (char c = 'A'; c <= 'Z'; c++)
         {
-            costs.Add(c, value++);
+            _costs.Add(c, value++);
         }
     }
-    
-    public void Solve()
+
+    public override void Solve()
     {
         SolvePartOne();
         SolvePartTwo();
@@ -43,13 +39,16 @@ public class DayThreeY2022 : IDay
 
     public void SolvePartOne()
     {
+        _costs = new Dictionary<char, int>();
+
+        InitializeCosts();
         int totalSum = 0;
         
-        var fileInput = Reader.ReadLinesFromFile(_filePath);
+        var fileInput = Reader.ReadLinesFromFile(FilePath);
 
         foreach (var line in fileInput)
         {
-            totalSum += costs[FindFirstDuplicate(line)];
+            totalSum += _costs[FindFirstDuplicate(line)];
         }
         
         Console.WriteLine(totalSum);
@@ -75,8 +74,12 @@ public class DayThreeY2022 : IDay
 
     public void SolvePartTwo()
     {
+        _costs = new Dictionary<char, int>();
+
+        InitializeCosts();
+        
         int totalSum = 0;
-        var fileInput = Reader.ReadLinesFromFile(_filePath);
+        var fileInput = Reader.ReadLinesFromFile(FilePath);
         var batchOfLines = new List<string>();
 
         foreach (var line in fileInput)
@@ -85,7 +88,7 @@ public class DayThreeY2022 : IDay
 
             if (batchOfLines.Count % TeamSize == 0)
             {
-                totalSum += costs[FindFirstDuplicate(batchOfLines)];
+                totalSum += _costs[FindFirstDuplicate(batchOfLines)];
                 
                 batchOfLines.Clear();
             }

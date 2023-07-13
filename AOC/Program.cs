@@ -13,7 +13,7 @@ public class Program
 
         for (var year = 2022; year <= 2022; year++)
         {
-            for (var day = 1; day <= 5; day++)
+            for (var day = 1; day <= dayFactory.GetDaysCount(); day++)
             {
                 Console.WriteLine($"--- Day {day} ---");
                 
