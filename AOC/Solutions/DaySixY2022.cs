@@ -17,66 +17,44 @@ public class DaySixY2022 : Day
 
     private void SolvePartOne()
     {
-        var input = Reader.ReadLinesFromFile(FilePath);
-
-        var window = new Window(startIndex: 0, endIndex: 3);
-        var hashMap = new Dictionary<char, int>();
-
-        // i dont like this >:(
-        foreach (var line in input)
-        {
-            int i = window.StartIndex;
-            while (i <= window.EndIndex)
-            {
-                if (hashMap.ContainsKey(line[i]))
-                {
-                    window.MoveEdges();
-                    hashMap.Clear();
-                    i = window.StartIndex - 1;
-                }
-                else
-                {
-                    hashMap[line[i]] = i;
-                }
-
-                i++;
-            }
-            
-            Console.WriteLine(i);
-        }
+        FindFirstNDifferentLetters(4);
     }
 
     private void SolvePartTwo()
     {
+        FindFirstNDifferentLetters(14);
+    }
+    
+    private void FindFirstNDifferentLetters(int N)
+    {
         var input = Reader.ReadLinesFromFile(FilePath);
-
-        var window = new Window(startIndex: 0, endIndex: 13);
+        
+        var window = new Window(startIndex: 0, endIndex: N - 1);
         var hashMap = new Dictionary<char, int>();
 
-        // i dont like this >:(
         foreach (var line in input)
         {
-            int i = window.StartIndex;
-            while (i <= window.EndIndex)
+            for (int i = window.StartIndex; i <= window.EndIndex; i++)
             {
                 if (hashMap.ContainsKey(line[i]))
                 {
                     window.MoveEdges();
-                    hashMap.Clear();
                     i = window.StartIndex - 1;
+                    
+                    hashMap.Clear();
                 }
                 else
                 {
                     hashMap[line[i]] = i;
                 }
-
-                i++;
             }
             
-            Console.WriteLine(i);
+            Console.WriteLine(window.EndIndex + 1);
         }
     }
 }
+
+
 
 internal struct Window
 {
