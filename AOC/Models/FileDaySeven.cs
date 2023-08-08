@@ -8,7 +8,7 @@ public class FileDaySeven : INodeDaySeven, IEquatable<FileDaySeven>
         ByteSize = size;
     }
     public string Name { get; }
-    public int ByteSize { get; }
+    public long ByteSize { get; }
 
     public bool Equals(FileDaySeven? other)
     {

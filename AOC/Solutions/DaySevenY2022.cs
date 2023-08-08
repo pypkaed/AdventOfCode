@@ -21,31 +21,32 @@ public class DaySevenY2022 : Day
         var fs = InitializeTree();
         fs.CalculateDirSizes();
 
-        var res = 0;
+        var res = 0L;
         
-        res = CalculateTotalDirSize(fs.Root);
+        res = CalculateSumOfSizes(fs.Root);
         
         Console.WriteLine(res);
     }
     
-    private int CalculateTotalDirSize(DirectoryDaySeven directory)
+    private long CalculateSumOfSizes(DirectoryDaySeven directory)
     {
-        int totalSize = directory.Size;
+        long sum = 0;
+
+        if (directory.Size <= 100000)
+        {
+            sum += directory.Size;
+        }
 
         foreach (var child in directory.Children)
         {
             if (child is DirectoryDaySeven childDirectory)
             {
-                if (childDirectory.Size <= 100000)
-                {
-                    totalSize += CalculateTotalDirSize(childDirectory);
-                }
+                sum += CalculateSumOfSizes(childDirectory);
             }
         }
 
-        return totalSize;
+        return sum;
     }
-
 
     private TreeDaySeven InitializeTree()
     {
@@ -74,7 +75,7 @@ public class DaySevenY2022 : Day
                         currentDir = currentDir.Children
                                                .OfType<DirectoryDaySeven>()
                                                .FirstOrDefault(d => 
-                                                                   d.Equals(new DirectoryDaySeven(line[2], currentDir)));
+                                                                   d.Equals(new DirectoryDaySeven(currentDir.Name + "/" + line[2], currentDir)));
                     }
                 }
             }
@@ -82,14 +83,14 @@ public class DaySevenY2022 : Day
             {
                 if (line[0] == "dir")
                 {
-                    currentDir.AddChild(new DirectoryDaySeven(line[1], currentDir));
+                    currentDir.AddChild(new DirectoryDaySeven( currentDir.Name+ "/" + line[1], currentDir));
                 }
                 else
                 {
                     currentDir.AddChild(
                                         new FileDaySeven(
                                                          Int32.Parse(line[0]),
-                                                         line[1]));
+                                                         currentDir.Name + "/" + line[1]));
                 }
             }
         }

@@ -13,7 +13,7 @@ public class DirectoryDaySeven : INodeDaySeven
     }
 
     public string Name { get; }
-    public int Size { get; set; }
+    public long Size { get; set; }
     public IReadOnlyCollection<INodeDaySeven> Children => _children;
     
     public DirectoryDaySeven? Parent { get; } 

@@ -8,9 +8,9 @@ public class TreeDaySeven
     }
     public DirectoryDaySeven Root { get; set; }
 
-    public int CalculateDirSize(DirectoryDaySeven node)
+    public long CalculateDirSize(DirectoryDaySeven node)
     {
-        int res = 0;
+        long res = 0;
 
         foreach (var child in node.Children)
         {
@@ -33,6 +33,8 @@ public class TreeDaySeven
         }
 
         node.Size = res;
+        Console.WriteLine(node.Name + " " + node.Size);
+
         return res;
     }
     public void CalculateDirSizes()
