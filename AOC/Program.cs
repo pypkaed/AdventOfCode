@@ -1,5 +1,4 @@
-﻿using AOC.Models;
-using AOC.Solutions;
+﻿using AOC.Solutions;
 using AOC.Utils;
 
 namespace AOC;
@@ -24,7 +23,6 @@ public class Program
                 
                 Console.WriteLine();
             }
-
         }
     }
 }
