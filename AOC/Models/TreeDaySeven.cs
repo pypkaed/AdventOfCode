@@ -33,7 +33,7 @@ public class TreeDaySeven
         }
 
         node.Size = res;
-        Console.WriteLine(node.Name + " " + node.Size);
+        // Console.WriteLine(node.Name + " " + node.Size);
 
         return res;
     }

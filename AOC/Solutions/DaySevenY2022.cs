@@ -97,7 +97,36 @@ public class DaySevenY2022 : Day
 
         return fs;
     }
-    
+
     private void SolvePartTwo()
-    { }
+    {
+        var fs = InitializeTree();
+        fs.CalculateDirSizes();
+
+        const long availSpace = 70000000;
+        const long updateSpace = 30000000;
+
+        var toDeleteSize = updateSpace - availSpace + fs.Root.Size;
+        var res = FindDirToDelete(fs.Root, toDeleteSize, null);
+        
+        Console.WriteLine(res);
+    }
+
+    private long? FindDirToDelete(DirectoryDaySeven node, long size, long? smallestSize)
+    {
+        if (smallestSize is null || (node.Size >= size && node.Size < smallestSize))
+        {
+            smallestSize = node.Size;
+        }
+
+        foreach (var child in node.Children)
+        {
+            if (child is DirectoryDaySeven childDir)
+            {
+                smallestSize = FindDirToDelete(childDir, size, smallestSize);
+            }
+        }
+
+        return smallestSize;
+    }
 }
